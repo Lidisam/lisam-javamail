@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27a3f8f1-7759-4d31-b987-3c98b0d2b1f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lisam/base/Mailer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lisam/pojo/ReceiveAllMailVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lisam/pojo/ReceiveMailAttachVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lisam/pojo/ReceiveMailVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lisam/utils/MailerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lisam/base/Mailer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lisam/base/Mailer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/lisam/Test01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/lisam/Test01.java" afterDir="false" />
-    </list>
+    <list default="true" id="27a3f8f1-7759-4d31-b987-3c98b0d2b1f9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -363,7 +353,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553252429346" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553252484369" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -423,7 +413,7 @@
       <option name="presentableId" value="Default" />
       <updated>1553165808790</updated>
       <workItem from="1553165822133" duration="1123000" />
-      <workItem from="1553219903563" duration="14965000" />
+      <workItem from="1553219903563" duration="15020000" />
     </task>
     <servers />
   </component>
@@ -436,7 +426,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16088000" />
+    <option name="totallyTimeSpent" value="16143000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
