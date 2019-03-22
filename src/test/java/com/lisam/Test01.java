@@ -25,6 +25,10 @@ public class Test01 {
 
     @Test
     public void test01() throws Exception {
+        // TODO:增加附件发送
+    }
+
+    public static boolean send() throws Exception {
         //1、连接邮件服务器的参数配置
         Properties props = new Properties();
         //设置用户的认证方式
@@ -48,6 +52,7 @@ public class Test01 {
 
         //5、关闭邮件连接
         transport.close();
+        return true;
     }
 
     /**
@@ -68,6 +73,8 @@ public class Test01 {
          * MimeMessage.RecipientType.BCC：密送
          */
         msg.setRecipient(MimeMessage.RecipientType.TO,new InternetAddress(recipientAddress));
+        msg.setRecipient(MimeMessage.RecipientType.CC,new InternetAddress(recipientAddress));
+        msg.setRecipient(MimeMessage.RecipientType.BCC,new InternetAddress(recipientAddress));
         //4.设置邮件主题
         msg.setSubject("邮件主题(包含图片和附件)","UTF-8");
 
@@ -112,6 +119,7 @@ public class Test01 {
         // 10. 设置（文本+图片）和 附件 的关系（合成一个大的混合"节点" / Multipart ）
         MimeMultipart mm = new MimeMultipart();
         mm.addBodyPart(text_image);
+        mm.addBodyPart(attachment);     // 如果有多个附件，可以创建多个多次添加
         mm.addBodyPart(attachment);     // 如果有多个附件，可以创建多个多次添加
         mm.setSubType("mixed");         // 混合关系
 
