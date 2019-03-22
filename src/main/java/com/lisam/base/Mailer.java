@@ -49,7 +49,7 @@ public class Mailer {
     }
 
     // 接收邮件
-    public ReceiveAllMailVo receive() throws GeneralSecurityException, MessagingException {
+    public ReceiveAllMailVo receive() throws Exception {
         return MailerUtil.receive(this.email, this.password, this.popHost, this.ssl, this.start, this.end);
     }
 

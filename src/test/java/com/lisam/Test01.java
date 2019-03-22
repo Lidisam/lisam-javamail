@@ -77,7 +77,7 @@ public class Test01 {
         // 5. 创建图片"节点"
         MimeBodyPart image = new MimeBodyPart();
         // 读取本地文件
-        DataHandler dh = new DataHandler(new FileDataSource("src\\mailTestPic.png"));
+        DataHandler dh = new DataHandler(new FileDataSource("C:\\Users\\a\\Desktop\\0119e89a6afb5805de7d2b72930a771.gif"));
         // 将图片数据添加到"节点"
         image.setDataHandler(dh);
         // 为"节点"设置一个唯一编号（在文本"节点"将引用该ID）
@@ -103,7 +103,7 @@ public class Test01 {
         // 9. 创建附件"节点"
         MimeBodyPart attachment = new MimeBodyPart();
         // 读取本地文件
-        DataHandler dh2 = new DataHandler(new FileDataSource("src\\mailTestDoc.docx"));
+        DataHandler dh2 = new DataHandler(new FileDataSource("C:\\Users\\a\\Desktop\\客服邮箱原型.png"));
         // 将附件数据添加到"节点"
         attachment.setDataHandler(dh2);
         // 设置附件的文件名（需要编码）
