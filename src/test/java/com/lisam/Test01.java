@@ -1,5 +1,6 @@
 package com.lisam;
 
+import com.lisam.base.Mailer;
 import org.junit.Test;
 
 import javax.activation.DataHandler;
@@ -25,7 +26,10 @@ public class Test01 {
 
     @Test
     public void test01() throws Exception {
-        // TODO:增加附件发送
+        Mailer mailer = new Mailer("lidisam@163.com", "zandnpb3");
+        mailer.setSmtpHost("smtp.163.com");
+        mailer.openDebug();
+        mailer.send("364362035@qq.com,lidisam@126.com", "测试标题", "测试内容");
     }
 
     public static boolean send() throws Exception {
