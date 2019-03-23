@@ -3,13 +3,14 @@ package com.lisam.base;
 import com.lisam.pojo.ReceiveAllMailVo;
 import com.lisam.pojo.ReceiveMailVo;
 import com.lisam.utils.MailerUtil;
+import sun.misc.ThreadGroupUtils;
 
 import javax.mail.Message;
-import javax.mail.MessagingException;
-import java.security.GeneralSecurityException;
+import java.io.File;
 
 /**
  * 工具实力入口类
+ *
  * @author lisam 2019-03-23 19:43:36
  */
 public class Mailer {
@@ -38,19 +39,40 @@ public class Mailer {
     // smtpHost
     private String smtpHost;
 
+    // cc 抄送者/密送者设置(可设置多个)
+    private String cc;  //抄送者
+    private String bcc; //密送者
+
+    // 是否在控制台打印邮件信息
+    private boolean debug = false; //密送者
+    private boolean debugReceive = false; //密送者
+
+    // 附件
+    private File[] attachs = null;
+
     public Mailer(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
     // 发送邮件
-    public Object send(String to, String subject, String content) throws Exception {
-        return MailerUtil.send(this.email, this.password, this.smtpHost, to, subject, content, this.ssl, this.port);
+    public boolean send(String to, String subject, String content) throws Exception {
+        boolean res = MailerUtil.send(this.email, this.password, this.smtpHost, to, subject, content, this.ssl, this.port
+                , this.cc, this.bcc, this.debug, this.attachs);
+        this.cc = null;
+        this.bcc = null;
+        this.debug = false;
+        this.attachs = null;
+        return res;
     }
 
     // 接收邮件
     public ReceiveAllMailVo receive() throws Exception {
-        return MailerUtil.receive(this.email, this.password, this.popHost, this.ssl, this.start, this.end);
+        ReceiveAllMailVo res = MailerUtil.receive(this.email, this.password, this.popHost, this.ssl, this.port, this.start, this.end, this.debugReceive);
+        this.start = 50;
+        this.end = 0;
+        this.debugReceive = false;
+        return res;
     }
 
     // 解析邮件
@@ -58,79 +80,125 @@ public class Mailer {
         return MailerUtil.parseMail(message);
     }
 
-    // 打开控制台打印
-    public void openDebug() {
-        MailerUtil.openDebug();
+    // 是否可连接上
+    public boolean isConnected(String popHost, boolean ssl) {
+        return MailerUtil.isConnected(this.email, this.password, popHost, ssl);
     }
-
-    // 关闭控制台打印
-    public void closeDebug() {
-        MailerUtil.closeDebug();
-    }
-
-
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public Mailer setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public Mailer setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public boolean isSsl() {
         return ssl;
     }
 
-    public void setSsl(boolean ssl) {
+    public Mailer setSsl(boolean ssl) {
         this.ssl = ssl;
+        return this;
     }
 
     public String getPort() {
         return port;
     }
 
-    public void setPort(String port) {
+    public Mailer setPort(String port) {
         this.port = port;
+        return this;
     }
 
     public int getStart() {
         return start;
     }
 
-    public void setStart(int start) {
+    public Mailer setStart(int start) {
         this.start = start;
+        return this;
     }
 
     public int getEnd() {
         return end;
     }
 
-    public void setEnd(int end) {
+    public Mailer setEnd(int end) {
         this.end = end;
+        return this;
     }
 
     public String getPopHost() {
         return popHost;
     }
 
-    public void setPopHost(String popHost) {
+    public Mailer setPopHost(String popHost) {
         this.popHost = popHost;
+        return this;
     }
 
     public String getSmtpHost() {
         return smtpHost;
     }
 
-    public void setSmtpHost(String smtpHost) {
+    public Mailer setSmtpHost(String smtpHost) {
         this.smtpHost = smtpHost;
+        return this;
+    }
+
+    public String getCc() {
+        return cc;
+    }
+
+    public Mailer setCc(String cc) {
+        this.cc = cc;
+        return this;
+    }
+
+    public String getBcc() {
+        return bcc;
+    }
+
+    public Mailer setBcc(String bcc) {
+        this.bcc = bcc;
+        return this;
+    }
+
+    public boolean isDebug() {
+        return debug;
+    }
+
+    public Mailer setDebug(boolean debug) {
+        this.debug = debug;
+        return this;
+    }
+
+    public boolean isDebugReceive() {
+        return debugReceive;
+    }
+
+    public Mailer setDebugReceive(boolean debugReceive) {
+        this.debugReceive = debugReceive;
+        return this;
+    }
+
+    public File[] getAttachs() {
+        return attachs;
+    }
+
+    public Mailer setAttachs(File[] attachs) {
+        this.attachs = attachs;
+        return this;
     }
 }

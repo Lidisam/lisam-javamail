@@ -91,4 +91,11 @@ public class ReceiveMailVo {
     public void setAttachments(List<DataSource> attachments) {
         this.attachments = attachments;
     }
+
+    @Override
+    public String toString() {
+        return "[from: " + this.from + "," +
+                "[sendDate: " + this.sendDate + "," +
+                "[attachments 附件数量: " + this.attachments.size() + "]";
+    }
 }
